@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.css';
 import Search from './Components/search';
 import Table from './Components/table';
 
@@ -57,13 +57,15 @@ class App extends Component {
     } = this.state;
 
     return (
-      <div className="App">
-        <Search 
-          value={searchTerm} 
-          onChange={this.onSearchChange} 
-        >
-          Search
-        </Search>
+      <div className="page">
+        <div className="interactions">
+          <Search 
+            value={searchTerm} 
+            onChange={this.onSearchChange} 
+          >
+            Search
+          </Search>
+        </div>
         <Table 
           value={searchTerm} 
           list={list} 
