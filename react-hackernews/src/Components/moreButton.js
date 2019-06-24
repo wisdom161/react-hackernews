@@ -4,10 +4,18 @@ const MoreButton = ({
   fetchSearchTopStories,
   searchKey,
   page,
-  children
+  children,
 }) => 
   <button onClick={() => fetchSearchTopStories(searchKey, page+1)}>
   {children}
   </button>
 
-export default MoreButton;
+const Loading = () => <div>Loadingggg...</div>
+
+const withLoading = (Component) => ({ isLoading, ...rest }) => isLoading 
+? <Loading />
+: <Component { ...rest} />
+
+const MoreButtonWithLoading = withLoading(MoreButton)
+
+export default MoreButtonWithLoading;

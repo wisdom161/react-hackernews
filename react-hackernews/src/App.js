@@ -3,7 +3,7 @@ import axios from 'axios';
 import './styles/App.css';
 import Search from './Components/search';
 import Table from './Components/table';
-import MoreButton from './Components/moreButton';
+import MoreButtonWithLoading from './Components/moreButton';
 
 const DEFAULT_QUERY = 'redux';
 const DEFAULT_HPP = '100';
@@ -14,7 +14,16 @@ const PARAM_SEARCH = 'query=';
 const PARAM_PAGE = 'page=';
 const PARAM_HPP = 'hitsPerPage=';
 
-const Loading = () => <div>Loading...</div>
+// const Loading = () => <div>Loading...</div>
+
+// function withFeature(Component) {
+//   return function(props) {
+//     return <Component { ...props } />;
+//   }
+// }
+
+// const withEnhancement = (Component) => (props) => <Component { ...props } />;
+// const withLoading = (Component) => ( { isLoading, ...rest} ) => isLoading ? <Loading /> : <Component { ...rest } />
 
 class App extends Component {
   constructor(props) {
@@ -141,16 +150,15 @@ class App extends Component {
           />
         }
         <div className="interactions">
-          { isLoading ?
-            <Loading /> 
-            : <MoreButton 
+            <MoreButtonWithLoading 
                 fetchSearchTopStories={this.fetchSearchTopStories}
                 searchKey={searchKey}
                 page={page}
+                isLoading={isLoading}
               >
               More 
-              </MoreButton>
-          }
+              </MoreButtonWithLoading>
+          
         </div>
       </div>
       );
