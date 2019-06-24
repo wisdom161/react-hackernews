@@ -2,11 +2,11 @@ import React from 'react';
 
 const MoreButton = ({
   fetchSearchTopStories,
-  searchTerm,
+  searchKey,
   page,
   children
 }) => 
-  <button onClick={() => fetchSearchTopStories(searchTerm, page+1)}>
+  <button onClick={() => fetchSearchTopStories(searchKey, page+1)}>
   {children}
   </button>
 
