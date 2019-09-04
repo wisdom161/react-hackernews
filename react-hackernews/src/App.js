@@ -14,8 +14,9 @@ const PARAM_SEARCH = 'query=';
 const PARAM_PAGE = 'page=';
 const PARAM_HPP = 'hitsPerPage=';
 
-
 class App extends Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
 
@@ -67,9 +68,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     const { searchTerm } = this.state;
     this.setState({ searchKey: searchTerm });
     this.fetchSearchTopStories(searchTerm);
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   onDismiss(id) {
@@ -156,3 +162,9 @@ class App extends Component {
   }
 
 export default App;
+
+export {
+  MoreButtonWithLoading,
+  Search,
+  Table
+}
