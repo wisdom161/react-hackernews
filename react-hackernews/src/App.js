@@ -14,16 +14,6 @@ const PARAM_SEARCH = 'query=';
 const PARAM_PAGE = 'page=';
 const PARAM_HPP = 'hitsPerPage=';
 
-// const Loading = () => <div>Loading...</div>
-
-// function withFeature(Component) {
-//   return function(props) {
-//     return <Component { ...props } />;
-//   }
-// }
-
-// const withEnhancement = (Component) => (props) => <Component { ...props } />;
-// const withLoading = (Component) => ( { isLoading, ...rest} ) => isLoading ? <Loading /> : <Component { ...rest } />
 
 class App extends Component {
   constructor(props) {
